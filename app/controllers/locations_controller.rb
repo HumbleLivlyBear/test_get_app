@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   def get
-    @location = { :name => "Jason", :email => "example@gmail.com"}   
+    @location = { :lat => "25.046103", :lng => "121.565609"}   
     respond_to do |format|
       format.html
       format.json {
