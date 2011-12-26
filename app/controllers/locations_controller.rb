@@ -6,7 +6,7 @@ class LocationsController < ApplicationController
    #                [{:name=>"Yangming" , :lat => "25.157327", :lng => "121.547999"}]
    #                [{:name=>"Taroku"  , :lat => "24.156348", :lng => "121.621263"} ]
    #             ]
-    @location = Locate.all
+    @location = Locations.all
     
     respond_to do |format|
       format.html
