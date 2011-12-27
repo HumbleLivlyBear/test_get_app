@@ -1,3 +1,4 @@
+# encoding: utf-8
 class LocationsController < ApplicationController
   def get
    # @location = { :lat => "25.034264", :lng => "121.564064"}  # Taipei 101 
@@ -7,6 +8,8 @@ class LocationsController < ApplicationController
    #                [{:name=>"Taroku"  , :lat => "24.156348", :lng => "121.621263"} ]
    #             ]
     @location = Locations.all
+    # params = { :locations => {"name"=>"中文"} }
+    #     @location = Locations.new(params[:locations])
     
     respond_to do |format|
       format.html
@@ -16,4 +19,18 @@ class LocationsController < ApplicationController
     end
   end
 
+  def index
+  end
+  
+  def new
+    @location = Locations.new
+    @title = "MineMap"
+  end
+  
+  def create
+    @user = Locations.new(params[:locations])
+    @user.save
+    flash[:success] = "Create Data Success!"
+    render 'get' 
+  end
 end

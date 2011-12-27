@@ -1,6 +1,6 @@
 TestGetApp::Application.routes.draw do
   get "locations/get"
-
+  resources :locations
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
