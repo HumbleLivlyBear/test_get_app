@@ -28,7 +28,13 @@ class LocationsController < ApplicationController
   end
   
   def create
+    
+    if Locations.new(params[:locations]).name != nil
     @user = Locations.new(params[:locations])
+    else
+    @user = Locations.new(JSON.parse(params[:locations]))  
+    end
+    
     @user.save
     flash[:success] = "Create Data Success!"
     render 'get' 
